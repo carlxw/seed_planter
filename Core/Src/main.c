@@ -88,18 +88,16 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  printf("Running");
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET);
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
-	  if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)) {
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	  if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_3)) {
+		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
+		  HAL_Delay(500);
 	  }
     /* USER CODE END WHILE */
 
