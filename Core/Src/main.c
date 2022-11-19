@@ -95,15 +95,30 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_3)) {
-		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_8);
-		  HAL_Delay(500);
-	  }
+
+//	  if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_3)) {
+//		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_8);
+//		  HAL_Delay(500);
+//	  }
+
+	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
+}
+
+/**
+ * @brief Returns the mean given a set of values. Implementation of a principle
+ */
+double obtainMean(double array[], int size) {
+	double sum = 0;
+	for (int i = 0; i < size; i++) {
+		sum += array[i];
+	}
+
+	return sum/size;
 }
 
 /**
